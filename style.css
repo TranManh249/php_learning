@@ -1,0 +1,10 @@
+body {
+  text-align: center;
+  background-image: url("may.png");
+  background-position: center;
+  color: blueviolet;
+}
+table {
+  margin: auto;
+  color: black;
+}
