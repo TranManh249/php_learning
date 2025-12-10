@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1 style="color: red; text-align: center">Form Dang Ky</h1>
+    <form id="registerForm">
+      <label>Họ và tên:</label><br />
+      <input type="text" id="fullname" required /><br /><br />
+
+      <label>Địa chỉ Email:</label><br />
+      <input type="text" id="contact" required /><br /><br />
+
+      <label>Ngày sinh:</label><br />
+      <input type="date" id="birthday" required /><br /><br />
+
+      <label>Tỉnh thành</label>
+      <select id="city">
+        <option value="hanoi">Hà Nội</option>
+        <option value="hatinh">Hà Tĩnh</option>
+        <option value="saigon">Sài Gòn</option>
+        <option value="binhduong">Bình Dương</option>
+        <option value="haiphong">Hải Phòng</option>
+      </select>
+
+      <br />
+      <br />
+      <textarea
+        name="node"
+        id="node"
+        rows="10"
+        cols="20"
+        placeholder="Ghi Chú"
+      ></textarea>
+      <br />
+      <button type="submit" class="btnlogin">Đăng ký</button>
+    </form>
+
+    <script>
+      document
+        .getElementById("registerForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault(); // chặn reload
+
+          let fullname = document.getElementById("fullname").value;
+          let contact = document.getElementById("contact").value;
+          let birthday = document.getElementById("birthday").value;
+          let city = document.getElementById("city").value;
+          let node = document.getElementById("node").value;
+
+          console.log(
+            "Đăng ký thành công\n" +
+              "Thông tin đăng ký:\n" +
+              "Họ tên: " +
+              fullname +
+              "\nLiên hệ: " +
+              contact +
+              "\nNgày sinh: " +
+              birthday +
+              "\n Tỉnh thành: " +
+              city +
+              "\nGhi chú: " +
+              node
+          );
+        });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,32 @@
+body {
+  background-color: whitesmoke;
+}
+form {
+  margin: auto;
+  width: 200px;
+  background-color: white;
+  border-radius: 8px;
+  text-align: center;
+}
+
+form.register-form > * {
+  margin: 0;
+  width: 100%;
+  box-sizing: border-box;
+  size: 100px;
+}
+.btnlogin {
+  padding: 15px 25px;
+  border: unset;
+  border-radius: 15px;
+  color: #212121;
+  z-index: 1;
+  background: #e8e8e8;
+  position: relative;
+  font-weight: 1000;
+  font-size: 17px;
+  -webkit-box-shadow: 4px 8px 19px -3px rgba(240, 4, 4, 0.27);
+  box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  transition: all 250ms;
+  overflow: hidden;
+}
