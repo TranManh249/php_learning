@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Login & Validation</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="card" aria-labelledby="title">
+      <h1 id="title">Đăng nhập</h1>
+
+      <form id="loginForm" novalidate>
+        <label for="username">Tên đăng nhập</label>
+        <input
+          id="username"
+          name="username"
+          type="text"
+          autocomplete="username"
+        />
+
+        <label for="password">Mật khẩu</label>
+        <input
+          id="password"
+          name="password"
+          type="password"
+          autocomplete="current-password"
+        />
+
+        <button type="submit">Đăng nhập</button>
+
+        <div id="message" class="message" role="alert" aria-live="polite"></div>
+
+        <p class="small">Vui long nhap thong tin.</p>
+      </form>
+    </main>
+
+    <script>
+      (function () {
+        const form = document.getElementById("loginForm");
+        const username = document.getElementById("username");
+        const password = document.getElementById("password");
+        const message = document.getElementById("message");
+
+        function showMessage(text, type) {
+          message.textContent = text;
+          message.classList.remove("error", "success");
+          if (type === "error") {
+            message.classList.add("error");
+          } else if (type === "success") {
+            message.classList.add("success");
+          }
+        }
+
+        form.addEventListener("submit", function (ev) {
+          ev.preventDefault();
+          const userVal = username.value.trim();
+          const passVal = password.value.trim();
+
+          if (!userVal && !passVal) {
+            showMessage("Vui lòng nhập tên đăng nhập và mật khẩu.", "error");
+            return;
+          }
+          if (!userVal) {
+            showMessage("Vui lòng nhập tên đăng nhập.", "error");
+            return;
+          }
+          if (!passVal) {
+            showMessage("Vui lòng nhập mật khẩu.", "error");
+            return;
+          }
+
+          showMessage(
+            "Đăng nhập thành công! Chào mừng " + userVal + ".",
+            "success"
+          );
+
+          // form.reset();
+        });
+
+        [username, password].forEach((inp) => {
+          inp.addEventListener("input", () => {
+            if (
+              message.classList.contains("error") ||
+              message.classList.contains("success")
+            ) {
+              message.style.display = "none";
+
+              setTimeout(() => (message.style.display = ""), 0);
+            }
+          });
+        });
+      })();
+    </script>
+  </body>
+</html>
